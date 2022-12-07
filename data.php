@@ -1053,8 +1053,16 @@
         } 
 
         public function changeArray(){
-            for
-            echo count($this->numbers);
+            for ($i = 0; $i < count ($this->numbers); $i++){
+            for ($j = 0; $j < count ($this->numbers[$i]); $j++){
+              if ($j == 0) {
+                $this->numbers[$i][$j] = "Baris".($i+1);
+              } else if ($j > 1 && $this->numbers[$i][$j] == $this->numbers[$i][$j-1]){
+                $this->numbers[$i][$j] = "skip";
+              }
+            }
+          }
+          print_r($this->numbers);
         }
     }
 	
